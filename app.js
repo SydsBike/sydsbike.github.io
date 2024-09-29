@@ -12,17 +12,12 @@ let board = document.getElementById("game");
 let isPaused = false;
 let firstPick;
 let matches = 0;
-const imagesArr = [
-  bunny,
-  butch,
-  gimp,
-  jules,
-  koons,
-  marsellus,
-  vince,
-  wolf,
-  lance,
-];
+let imagesArr = [];
+
+window.screen.width < 900
+  ? (imagesArr = [gimp, jules, vince, bunny, marsellus, lance])
+  : (imagesArr = imagesArr =
+      [bunny, butch, gimp, jules, koons, marsellus, vince, wolf, lance]);
 
 const gameArray = [...imagesArr, ...imagesArr];
 
