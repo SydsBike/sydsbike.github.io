@@ -15,7 +15,7 @@ let matches = 0;
 let imagesArr = [];
 
 window.screen.width < 900
-  ? (imagesArr = [gimp, jules, vince, bunny, marsellus, lance])
+  ? (imagesArr = [gimp, jules, vince, bunny, marsellus, koons])
   : (imagesArr = imagesArr =
       [bunny, butch, gimp, jules, koons, marsellus, vince, wolf, lance]);
 
