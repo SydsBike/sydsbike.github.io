@@ -66,7 +66,7 @@ function startGame() {
 function handleClick(event) {
   const card = event.currentTarget;
   const [front, back] = getFrontAndBack(card);
-
+  const audio = document.getElementById("match");
   if (front.classList.contains("rotated") || isPaused) return;
 
   isPaused = true;
@@ -81,6 +81,9 @@ function handleClick(event) {
     const secondName = card.dataset.name;
     if (firstName !== secondName) {
       const [firstFront, firstBack] = getFrontAndBack(firstPick);
+      audio.src = "./sounds/error.mp3";
+      audio.currentTime = 0;
+      audio.play();
       setTimeout(() => {
         rotateElements([front, back, firstFront, firstBack]);
         isPaused = false;
@@ -88,6 +91,9 @@ function handleClick(event) {
       }, 1000);
     } else {
       matches++;
+      audio.src = "./sounds/match.mp3";
+      audio.currentTime = 0;
+      audio.play();
       firstPick = null;
       isPaused = false;
     }
