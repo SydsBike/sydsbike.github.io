@@ -8,16 +8,34 @@ const vince = ["./pics/vince.jpg", "Vincent Vega"];
 const wolf = ["./pics/wolf.png", "The Wolf"];
 const lance = ["./pics/lance.png", "Lance"];
 const front = "./pics/pulp_fiction_card.jpg";
+const namesArr = [
+  bunny,
+  butch,
+  gimp,
+  jules,
+  koons,
+  marsellus,
+  vince,
+  wolf,
+  lance,
+];
 let board = document.getElementById("game");
 let isPaused = false;
 let firstPick;
 let matches = 0;
 let imagesArr = [];
 
-window.screen.width < 900
-  ? (imagesArr = [gimp, jules, vince, bunny, marsellus, koons])
-  : (imagesArr = imagesArr =
-      [bunny, butch, gimp, jules, koons, marsellus, vince, wolf, lance]);
+if (window.screen.width < 900) {
+  while (imagesArr.length < 6) {
+    let index = Math.floor(Math.random() * namesArr.length);
+    if (!imagesArr.includes(namesArr[index])) {
+      imagesArr = [...imagesArr, namesArr[index]];
+    }
+  }
+  console.log(imagesArr);
+} else {
+  imagesArr = namesArr;
+}
 
 const gameArray = [...imagesArr, ...imagesArr];
 
